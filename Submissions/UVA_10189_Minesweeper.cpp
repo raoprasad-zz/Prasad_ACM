@@ -6,16 +6,18 @@ using namespace std;
 int main()
 {
     int caseID = 0;
+
+    int row, col;
+    cin >> row >> col;
+
+    if(row == 0 || col == 0)
+    {
+        return 0;
+    }
+
     while(true)
     {
         caseID++;
-        int row, col;
-        cin >> row >> col;
-
-        if(row == 0 || col == 0)
-        {
-            break;
-        }
 
         int** mineField = new int*[row];
         memset(mineField,0,sizeof(int*)*row);
@@ -102,7 +104,16 @@ int main()
             printf("\n");
             delete mineField[rowID];
         }
-        printf("\n");
+
         delete mineField;
+
+        cin >> row >> col;
+
+        if(row == 0 || col == 0)
+        {
+            break;
+        }
+        printf("\n");
+
     }
 }
